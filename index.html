@@ -74,11 +74,11 @@
                 margin-bottom: 1rem;
                 padding: 1rem;
                 box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-                background-color: #ffffff; /* Add white background for cards */
+                /* background-color removed to inherit from body and prevent flicker */
             }
             .dark .responsive-table tr {
                 border-color: #374151; /* dark:border-gray-700 */
-                background-color: #1f2937; /* dark:bg-gray-800 */
+                 /* background-color removed */
             }
 
             .responsive-table td {
@@ -87,7 +87,7 @@
                 align-items: center;
                 gap: 1rem;
                 padding: 0.75rem 0; /* Vertical padding, no horizontal */
-                border-bottom: 1px solid #f3f4f6; /* A very light separator */
+                border-bottom: 1px solid #e5e7eb; /* A light separator */
             }
 
             .dark .responsive-table td {
@@ -107,7 +107,7 @@
                 white-space: nowrap;
             }
             .dark .responsive-table td[data-label]::before {
-                color: #9ca3af; /* dark:text-gray-400 */
+                color: #f9fafb; /* text-gray-50 (white) for contrast */
             }
             
             /* Center all values/inputs within their grid cell */
@@ -837,7 +837,7 @@
                                 <th class="px-4 py-3 text-center font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Total</th>
                             </tr>
                         </thead>
-                        <tbody class="md:bg-white md:dark:bg-gray-800 md:divide-y divide-gray-200 dark:divide-gray-700">
+                        <tbody class="md:bg-white md:dark:bg-gray-800 md:divide-y md:divide-gray-200 md:dark:divide-gray-700">
                             ${(dayData.exercises || []).map((ex, exIndex) => {
                                 const total = calculateTotal(ex);
                                 const displayedTotal = (typeof total.value === 'number') ? total.value.toFixed(1) : total.value;
@@ -1445,4 +1445,3 @@
     </script>
 </body>
 </html>
-
